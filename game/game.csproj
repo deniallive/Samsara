@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="assets\Scripts\ActiveStateToggler.cs" />
@@ -125,6 +131,7 @@
     <Compile Include="assets\samsara\scripts\Core\UnitStateMarkedAsReachableEnemy.cs" />
     <Compile Include="assets\samsara\scripts\Core\UnitStateMarkedAsSelected.cs" />
     <Compile Include="assets\samsara\scripts\Core\UnitStateNormal.cs" />
+    <Compile Include="assets\samsara\scripts\Core\buttonControls.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\Fonts\Jupiter\LICENSE.txt" />
