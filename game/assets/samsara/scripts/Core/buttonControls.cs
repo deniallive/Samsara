@@ -8,7 +8,6 @@ public class buttonControls : MonoBehaviour {
     public void startGame(string startGame)
     {
         SceneManager.LoadScene(startGame);
-
     }
 
     public void exitGame()
