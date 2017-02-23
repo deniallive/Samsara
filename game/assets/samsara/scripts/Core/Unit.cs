@@ -27,14 +27,11 @@ public abstract class Unit : MonoBehaviour
     public event EventHandler<AttackEventArgs> UnitDestroyed;
     public event EventHandler<MovementEventArgs> UnitMoved;
 
-
-
     public UnitState UnitState { get; set; }
     public void SetState(UnitState state)
     {
         UnitState.MakeTransition(state);
     }
-
 
     public int TotalHitPoints { get; private set; }
     protected int TotalMovementPoints;

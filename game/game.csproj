@@ -100,6 +100,7 @@
     <Compile Include="assets\samsara\scripts\Core\DijkstraPathfinding.cs" />
     <Compile Include="assets\samsara\scripts\Core\EquilateralHexGridGenerator.cs" />
     <Compile Include="assets\samsara\scripts\Core\GuiController.cs" />
+    <Compile Include="assets\samsara\scripts\Core\Headquarter.cs" />
     <Compile Include="assets\samsara\scripts\Core\HeapPriorityQueue.cs" />
     <Compile Include="assets\samsara\scripts\Core\Hero.cs" />
     <Compile Include="assets\samsara\scripts\Core\Hexagon.cs" />
