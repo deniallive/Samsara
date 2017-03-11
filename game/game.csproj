@@ -88,6 +88,7 @@
     <Compile Include="assets\Scripts\TiltWindow.cs" />
     <Compile Include="assets\loadScenee.cs" />
     <Compile Include="assets\samsara\scripts\Core\AStarPathfinding.cs" />
+    <Compile Include="assets\samsara\scripts\Core\Building.cs" />
     <Compile Include="assets\samsara\scripts\Core\Cell.cs" />
     <Compile Include="assets\samsara\scripts\Core\CellGrid.cs" />
     <Compile Include="assets\samsara\scripts\Core\CellGridState.cs" />

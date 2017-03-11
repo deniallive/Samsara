@@ -7,7 +7,6 @@ class RandomUnitGenerator : MonoBehaviour, IUnitGenerator
     private System.Random _rnd = new System.Random();
 
     public Transform UnitsParent;
-
     public GameObject UnitPrefab;
     public int NumberOfPlayers;
     public int UnitsPerPlayer;

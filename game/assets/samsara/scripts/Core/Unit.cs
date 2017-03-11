@@ -32,7 +32,7 @@ public abstract class Unit : MonoBehaviour
     {
         UnitState.MakeTransition(state);
     }
-
+    
     public int TotalHitPoints { get; private set; }
     protected int TotalMovementPoints;
     protected int TotalActionPoints;
@@ -41,8 +41,9 @@ public abstract class Unit : MonoBehaviour
     /// Cell that the unit is currently occupying.
     /// </summary>
     public Cell Cell { get; set; }
-    public int type; //1=melee,2=range,3=magic
-    public int type2; //1-land,2-water,3-fly
+
+    public int type; //1=melee,2=range,3=magic,4=worker
+    public int type2; //0-land,2-water,3-fly
     public int HitPoints;
     public int AttackRange;
     private int AttackFactor;
@@ -51,6 +52,10 @@ public abstract class Unit : MonoBehaviour
     public int MagicDefence;
     public int CloseRangeDamage;
     public int CloseRangeDefence;
+    
+    public Canvas WorkerPanel;
+    
+    
     /// <summary>
     /// Determines how far on the grid the unit can move.
     /// </summary>
@@ -82,18 +87,21 @@ public abstract class Unit : MonoBehaviour
     /// </summary>
     public virtual void Initialize()
     {
+        //turn the worker panel off first.
+        GameObject tempObj = GameObject.Find("Canvas");
+        WorkerPanel = tempObj.GetComponent<Canvas>();
+        WorkerPanel.enabled = false;
 
-        UnitState = new UnitStateNormal(this);
-
+        UnitState = new UnitStateNormal(this);        
         TotalHitPoints = HitPoints;
         TotalMovementPoints = MovementPoints;
-        TotalActionPoints = ActionPoints;
+        TotalActionPoints = ActionPoints;        
     }
 
     protected virtual void OnMouseDown()
     {
-        if (UnitClicked != null)
-            UnitClicked.Invoke(this, new EventArgs());
+        if (UnitClicked != null)            
+            UnitClicked.Invoke(this, new EventArgs());        
     }
     protected virtual void OnMouseEnter()
     {
@@ -277,6 +285,8 @@ public abstract class Unit : MonoBehaviour
     /// </summary>
     public virtual bool IsCellMovableTo(Cell cell)
     {
+        CheckIfWorker(); //check if the unit is a worker unit
+
             if (type2 == 2)
             {
                 if (cell.getHexType() == 2)
@@ -293,7 +303,7 @@ public abstract class Unit : MonoBehaviour
             {
                 return !cell.IsTaken;
             }
-            else if (type2 == 0)
+            else if (type2 == 0 || type2 == 4)
             {
                 if (cell.getHexType() == 0)
                 {
@@ -307,6 +317,7 @@ public abstract class Unit : MonoBehaviour
 
         return cell.IsTaken;
     }
+
     /// <summary>
     /// Method indicates if unit is capable of moving through cell given as parameter.
     /// </summary>
@@ -329,7 +340,7 @@ public abstract class Unit : MonoBehaviour
         {
             return !cell.IsTaken;
         }
-        else if (type2 == 0)
+        else if (type2 == 0 || type2 == 4)
         {
             if (cell.getHexType() == 0)
             {
@@ -343,6 +354,7 @@ public abstract class Unit : MonoBehaviour
 
         return cell.IsTaken;
     }
+
     /// <summary>
     /// Method returns all cells that the unit is capable of moving to.
     /// </summary>
@@ -371,6 +383,7 @@ public abstract class Unit : MonoBehaviour
     {
         return _pathfinder.FindPath(GetGraphEdges(cells), Cell, destination);
     }
+
     /// <summary>
     /// Method returns graph representation of cell grid for pathfinding.
     /// </summary>
@@ -389,6 +402,18 @@ public abstract class Unit : MonoBehaviour
             }
         }
         return ret;
+    }
+
+    //To check if the unit is worker to open ui
+    private void CheckIfWorker()
+    {
+        if (type == 4)
+        {
+            //open ui for worker
+            GameObject tempObj = GameObject.Find("Canvas");
+            WorkerPanel = tempObj.GetComponent<Canvas>();
+            WorkerPanel.enabled = true;            
+        }
     }
 
     /// <summary>

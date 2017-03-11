@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Samsara\Scripts\Core\AStarPathfinding.cs" />
+    <Compile Include="Assets\Samsara\Scripts\Core\Headquarter.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\Cell.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\CellGrid.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\CellGridState.cs" />
@@ -90,8 +91,8 @@
     <Compile Include="Assets\Samsara\Scripts\Core\DijkstraPathfinding.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\EquilateralHexGridGenerator.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\GuiController.cs" />
-    <Compile Include="Assets\Samsara\Scripts\Core\Headquarter.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\HeapPriorityQueue.cs" />
+    <Compile Include="Assets\Samsara\Scripts\Core\Building.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\Hero.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\Hexagon.cs" />
     <Compile Include="Assets\Samsara\Scripts\Core\HexagonalHexGridGenerator.cs" />
